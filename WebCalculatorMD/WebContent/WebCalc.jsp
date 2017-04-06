@@ -27,41 +27,60 @@
 <c:out value="${calc.result}"/>
 <c:out value="${ticketId}" />
 
+
 <form method='POST' action="calcControl">
-<div class = "col-4">
-  	<input type="text" class="form-control" name='name' value="${calc.result}">
-</div>
-	<input type='submit' name='btn' value= "next" class="btn btn-secondary"/>
-	
+	<div class="container">
+  		<div class="col-sm-5"><input type="text" class="form-control" name='name' value="${calc.result}"></div>
+  	</div>
+  	<div class="container">
+  		<div class="col-sm-5">
+  	 		<div class="btn-group btn-group-justified">
+  				<button type='submit' name='btn' value= "7" class="btn btn-info">7</button>
+  				<button type='submit' name='btn' value= "8" class="btn btn-info">8</button>
+  				<button type='submit' name='btn' value= "9" class="btn btn-info">9</button>
+  				<button type='submit' name='btn' value= "divide" class="btn btn-info">/</button>
+  				<button type='submit' name='btn' value= "reset" class="btn btn-warning"/>C</button>
+  			</div>
+  		</div>
+  	</div>
+  	
+  	<div class="container">
+  		<div class="col-sm-5">
+  	 		<div class="btn-group btn-group-justified">
+  				<button type='submit' name='btn' value= "4" class="btn btn-info">4</button>
+  				<button type='submit' name='btn' value= "5" class="btn btn-info">5</button>
+  				<button type='submit' name='btn' value= "6" class="btn btn-info">6</button>
+  				<button type='submit' name='btn' value= "multiply" class="btn btn-info">*</button>
+  				<button type='submit' name='btn' value= "sqrt" class="btn btn-info">sqrt</button>
+  			</div>
+  		</div>
+  	</div>
+  	
+  	<div class="container">
+  		<div class="col-sm-5">
+  	 		<div class="btn-group btn-group-justified">
+  				<button type='submit' name='btn' value= "1" class="btn btn-info">1</button>
+  				<button type='submit' name='btn' value= "2" class="btn btn-info">2</button>
+  				<button type='submit' name='btn' value= "3" class="btn btn-info">3</button>
+  				<button type='submit' name='btn' value= "plus" class="btn btn-info">+</button>
+  				<button type='submit' name='btn' value= "percent" class="btn btn-info">%</button>
+  			</div>
+  		</div>
+  	</div>
+  	
+  	<div class="container">
+  		<div class="col-sm-5">
+  	 		<div class="btn-group btn-group-justified">
+  				<button type='submit' name='btn' value= "0" class="btn btn-info">0</button>
+  				<button type='submit' name='btn' value= "dot" class="btn btn-info">.</button>
+  				<button type='submit' name='btn' value= "pm" class="btn btn-info">+/-</button>
+  				<button type='submit' name='btn' value= "minus" class="btn btn-info">-</button>
+  				<button type='submit' name='btn' value= "calculate" class="btn btn-primary">=</button>
+  			</div>
+  		</div>
+  	</div>
+  	
 </form>
-
-<select class="form-control form-control-lg">
-  <option>Large select</option>
-</select>
-<select class="form-control">
-  <option>Default select</option>
-</select>
-<select class="form-control form-control-sm">
-  <option>Small select</option>
-</select>
-
-<div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-</div>
-
-<div class="container">
-  <h1>Hello World!</h1>
-  <div class="row">
-    <div class="col-sm-6" style="background-color:yellow;">
-      <p>Lorem ipsum...</p>
-    </div>
-    <div class="col-sm-6" style="background-color:pink;">
-      <p>Sed ut perspiciatis...</p>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
