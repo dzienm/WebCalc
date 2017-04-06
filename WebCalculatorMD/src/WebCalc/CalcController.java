@@ -1,6 +1,7 @@
 package WebCalc;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 public class CalcController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	Calc kalkulator = new Calc();
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -44,13 +44,31 @@ public class CalcController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		kalkulator.setResult(kalkulator.getResult()+1);
-		 
+		Calc kalkulator = new Calc();
+		
+		if(request.getParameterValues("btnNum")!=null){
+			if(request.getParameterValues("digitizer")!=null){
+				updateDigitizer(kalkulator,request);
+			}
+		}
+		
+		if(request.getParameterValues("btnOp")!=null){
+			RequestDispatcher requestDispatcher =
+			        getServletContext().getRequestDispatcher("/WebCalcOpActive.jsp");
+			      requestDispatcher.forward(request, response);	
+		}
+		
 		request.setAttribute("calc",kalkulator);
-		request.setAttribute("ticketId","to jest Id");
+		
 		RequestDispatcher requestDispatcher =
 		        getServletContext().getRequestDispatcher("/WebCalc.jsp");
 		      requestDispatcher.forward(request, response);	
+	}
+	
+	private void updateDigitizer(Calc _kalkulator,HttpServletRequest request){
+		String digitValue = request.getParameterValues("digitizer")[0];
+		String cyfra = request.getParameterValues("btnNum")[0];
+		_kalkulator.setResult(digitValue + cyfra);
 	}
 
 }
