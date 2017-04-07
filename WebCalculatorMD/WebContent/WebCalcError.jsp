@@ -22,7 +22,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<jsp:useBean id="calc" scope="session" class="WebCalc.Calc"/>
+<jsp:useBean id="calc" scope="session" class="WebCalc.Model.Calc"/>
 
 
 <form method='POST' action="calcControl">
@@ -30,7 +30,7 @@
 
 <input type="hidden" name="bday" value="jestem ukryty"> -->
 	<div class="container">
-  		<div class="col-sm-5"><input type="text" class="form-control" name='digitizer' value="${calc.result}"></div>
+  		<div class="col-sm-5"><input type="text" class="form-control" name='digitizer' value="ERR"  STYLE="color: #FF0000"></div>
   	</div>
   	<!-- dla przegladarek Firefox, Chrome kazdy przycisk trzeba opakowac tagiem button group, 
   	w IE dziala normalnie, wystarczy ze sa buttony bez dodatkowego opakowania -->
@@ -38,13 +38,13 @@
   		<div class="col-sm-5">
   	 		<div class="btn-group btn-group-justified">
   	 			<div class="btn-group">
-  					<button type='submit' name='btnNum' value= "7" class="btn btn-info">7</button>
+  					<button type='submit' name='btnNum' value= "7" class="btn btn-info disabled">7</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnNum' value= "8" class="btn btn-info">8</button>
+  					<button type='submit' name='btnNum' value= "8" class="btn btn-info disabled">8</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnNum' value= "9" class="btn btn-info">9</button>
+  					<button type='submit' name='btnNum' value= "9" class="btn btn-info disabled">9</button>
   				</div>
   				<div class="btn-group">
   					<button type='submit' name='btnOp' value= "divide" class="btn btn-info disabled">/</button>
@@ -60,13 +60,13 @@
   		<div class="col-sm-5">
   	 		<div class="btn-group btn-group-justified">
   	 			<div class="btn-group">
-  					<button type='submit' name='btnNum' value= "4" class="btn btn-info">4</button>
+  					<button type='submit' name='btnNum' value= "4" class="btn btn-info disabled">4</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnNum' value= "5" class="btn btn-info">5</button>
+  					<button type='submit' name='btnNum' value= "5" class="btn btn-info disabled">5</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnNum' value= "6" class="btn btn-info">6</button>
+  					<button type='submit' name='btnNum' value= "6" class="btn btn-info disabled">6</button>
   				</div>
   				<div class="btn-group">
   					<button type='submit' name='btnOp' value= "multiply" class="btn btn-info disabled">*</button>
@@ -82,19 +82,19 @@
   		<div class="col-sm-5">
   	 		<div class="btn-group btn-group-justified">
   	 			<div class="btn-group">
-  				<button type='submit' name='btnNum' value= "1" class="btn btn-info">1</button>
+  				<button type='submit' name='btnNum' value= "1" class="btn btn-info disabled">1</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnNum' value= "2" class="btn btn-info">2</button>
+  					<button type='submit' name='btnNum' value= "2" class="btn btn-info disabled">2</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnNum' value= "3" class="btn btn-info">3</button>
+  					<button type='submit' name='btnNum' value= "3" class="btn btn-info disabled">3</button>
   				</div>
   				<div class="btn-group">
   					<button type='submit' name='btnOp' value= "plus" class="btn btn-info disabled">+</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnOp' value= "percent" class="btn btn-info">%</button>
+  					<button type='submit' name='btnOp' value= "percent" class="btn btn-info disabled">%</button>
   				</div>
   			</div>
   		</div>
@@ -104,19 +104,19 @@
   		<div class="col-sm-5">
   	 		<div class="btn-group btn-group-justified">
   	 			<div class="btn-group">
-  					<button type='submit' name='btnNum' value= "0" class="btn btn-info">0</button>
+  					<button type='submit' name='btnNum' value= "0" class="btn btn-info disabled">0</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btn' value= "dot" class="btn btn-info">.</button>
+  					<button type='submit' name='btn' value= "dot" class="btn btn-info disabled">.</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btn' value= "pm" class="btn btn-info">+/-</button>
+  					<button type='submit' name='btn' value= "pm" class="btn btn-info disabled">+/-</button>
   				</div>
   				<div class="btn-group">
   					<button type='submit' name='btnOp' value= "minus" class="btn btn-info disabled">-</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btn' value= "calculate" class="btn btn-primary">=</button>
+  					<button type='submit' name='btn' value= "calculate" class="btn btn-primary disabled">=</button>
   				</div>
   			</div>
   		</div>

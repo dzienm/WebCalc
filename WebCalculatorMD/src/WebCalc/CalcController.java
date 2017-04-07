@@ -1,7 +1,6 @@
 package WebCalc;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import WebCalc.Model.Calc;
 
 /**
  * Servlet implementation class CalcController
@@ -45,6 +46,7 @@ public class CalcController extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		Calc kalkulator = new Calc();
+		kalkulator = (Calc)request.getSession().getAttribute("calc");
 		
 		if(request.getParameterValues("btnNum")!=null){
 			if(request.getParameterValues("digitizer")!=null){
@@ -52,10 +54,54 @@ public class CalcController extends HttpServlet {
 			}
 		}
 		
-		if(request.getParameterValues("btnOp")!=null){
-			RequestDispatcher requestDispatcher =
-			        getServletContext().getRequestDispatcher("/WebCalcOpActive.jsp");
-			      requestDispatcher.forward(request, response);	
+		if(request.getParameterValues("btnBinOp")!=null){
+			try{
+			kalkulator.calculateResult(true);}
+			catch(IllegalStateException e){
+				RequestDispatcher requestDispatcher =
+				        getServletContext().getRequestDispatcher("/WebCalcError.jsp");
+				      requestDispatcher.forward(request, response);
+			}
+			kalkulator.setBinaryOp(request.getParameterValues("btnBinOp")[0]);				
+		}
+		
+		if(request.getParameterValues("btnUnOp")!=null){
+			try{
+			kalkulator.calculateUnaryOp(request.getParameterValues("btnUnOp")[0]);}
+			catch(IllegalStateException e){
+				RequestDispatcher requestDispatcher =
+				        getServletContext().getRequestDispatcher("/WebCalcError.jsp");
+				      requestDispatcher.forward(request, response);
+			}
+		}
+		
+		if(request.getParameterValues("btn")!=null){
+			String btnValue = request.getParameterValues("btn")[0];
+			
+			switch(btnValue){
+				case "dot":
+					kalkulator.setDot();
+					break;
+				case "pm":
+					kalkulator.setPlusMinus();
+					break;
+				case "calculate":
+					try{
+					kalkulator.calculateResult(false);}
+					catch(IllegalStateException e){
+						RequestDispatcher requestDispatcher =
+						        getServletContext().getRequestDispatcher("/WebCalcError.jsp");
+						      requestDispatcher.forward(request, response);
+					}
+					break;
+				case "reset":
+					request.getSession(false).invalidate();
+					RequestDispatcher requestDispatcher =
+					        getServletContext().getRequestDispatcher("/WebCalc.jsp");
+					      requestDispatcher.forward(request, response);	
+					break;
+			}
+							
 		}
 		
 		request.setAttribute("calc",kalkulator);
@@ -66,9 +112,9 @@ public class CalcController extends HttpServlet {
 	}
 	
 	private void updateDigitizer(Calc _kalkulator,HttpServletRequest request){
-		String digitValue = request.getParameterValues("digitizer")[0];
+		//String digitValue = request.getParameterValues("digitizer")[0];
 		String cyfra = request.getParameterValues("btnNum")[0];
-		_kalkulator.setResult(digitValue + cyfra);
+		_kalkulator.setResult(_kalkulator.getResult() + cyfra);
 	}
 
 }

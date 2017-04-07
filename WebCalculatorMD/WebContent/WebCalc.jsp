@@ -22,7 +22,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<jsp:useBean id="calc" scope="session" class="WebCalc.Calc"/>
+<jsp:useBean id="calc" scope="session" class="WebCalc.Model.Calc"/>
 
 
 <form method='POST' action="calcControl">
@@ -47,7 +47,7 @@
   					<button type='submit' name='btnNum' value= "9" class="btn btn-info">9</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnOp' value= "divide" class="btn btn-info">/</button>
+  					<button type='submit' name='btnBinOp' value= "divide" class="btn btn-info">/</button>
   				</div>
   				<div class="btn-group">
   					<button type='submit' name='btn' value= "reset" class="btn btn-warning">C</button>
@@ -69,10 +69,10 @@
   					<button type='submit' name='btnNum' value= "6" class="btn btn-info">6</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnOp' value= "multiply" class="btn btn-info">*</button>
+  					<button type='submit' name='btnBinOp' value= "multiply" class="btn btn-info">*</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnOp' value= "sqrt" class="btn btn-info">sqrt</button>
+  					<button type='submit' name='btnUnOp' value= "sqrt" class="btn btn-info">sqrt</button>
   				</div>
   			</div>
   		</div>
@@ -91,10 +91,10 @@
   					<button type='submit' name='btnNum' value= "3" class="btn btn-info">3</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnOp' value= "plus" class="btn btn-info">+</button>
+  					<button type='submit' name='btnBinOp' value= "plus" class="btn btn-info">+</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnOp' value= "percent" class="btn btn-info">%</button>
+  					<button type='submit' name='btnUnOp' value= "percent" class="btn btn-info">%</button>
   				</div>
   			</div>
   		</div>
@@ -113,10 +113,10 @@
   					<button type='submit' name='btn' value= "pm" class="btn btn-info">+/-</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btnOp' value= "minus" class="btn btn-info">-</button>
+  					<button type='submit' name='btnBinOp' value= "minus" class="btn btn-info">-</button>
   				</div>
   				<div class="btn-group">
-  					<button type='submit' name='btn' value= "calculate" class="btn btn-primary disabled">=</button>
+  					<button type='submit' name='btn' value= "calculate" class="btn btn-primary">=</button>
   				</div>
   			</div>
   		</div>
